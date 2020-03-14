@@ -1,0 +1,19 @@
+{% extends 'base.html' %} {% block content %}
+<style>
+        h5 { text-align: center }
+</style>
+<div class="container pt-5">
+        <h5>Create new post about your travel adventures</h5>
+</div>
+<div class="container">
+      
+        <form class="form-group" action="{% url 'blog:create_post' %}" method="post" enctype="multipart/form-data">
+        {% csrf_token %}
+        {% load crispy_forms_tags %}
+        {{ form |crispy }}
+        <input class="btn btn-color" type="submit" value="Create">
+        </form>
+</div>
+
+
+{% endblock %}

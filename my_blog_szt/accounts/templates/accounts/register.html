@@ -1,0 +1,18 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<style>
+  h5 { text-align: center }
+</style>
+<div class="container pt-5">
+    <h5 >Sign up</h5>
+</div>
+    <div class="container">
+        <form class="form-group" action="{% url 'accounts:signup' %}" method="post">
+            {% csrf_token %}
+            {% load crispy_forms_tags %}
+            {{ form |crispy }}
+            <input class="btn btn-color" type="submit" value="Sign up">
+        </form>
+    </div>
+{% endblock %}
